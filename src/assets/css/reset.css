@@ -1,0 +1,25 @@
+@import url('//at.alicdn.com/t/c/font_3690946_uqpq00zpl2e.css');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+    background:none; 
+}
+
+body {
+    font-family: '微软雅黑',Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background-color: #f5f5f5;
+}
