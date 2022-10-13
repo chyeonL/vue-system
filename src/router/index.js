@@ -15,7 +15,8 @@ router.beforeEach((to,from,next)=>{
     // 只要有一个匹配到的路由有requireAuth，就返回true
     let requireAuth = to.matched.some(item=>item.meta.requireAuth)
     // 看看登录没
-    let isLogin = store.state.user.isLogin || false
+    let isLogin = store.state.user.isLogin 
+    // console.log(isLogin);
     // 需要登录
     if(requireAuth){        
         // 已经登陆

@@ -35,9 +35,6 @@ export default {
       submitUpload() {
         this.$refs.upload.submit();
       },
-      handleRemove(file, fileList) {
-        // console.log(file, fileList);
-      },
     //   上传成功
       handleSuccess(response, file, fileList){
         // console.log(response, file, fileList);

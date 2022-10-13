@@ -85,7 +85,7 @@ export default {
       // 2022年上半年店铺营业额
       sales: {
         option: {
-          color: ["#EE6666",'#5470c6',"#FFD04B"],
+          color: ["#EE6666", "#5470c6", "#FFD04B"],
           tooltip: {},
           legend: {
             itemWidth: 15,
@@ -152,10 +152,10 @@ export default {
             right: 40,
             top: 20,
           },
-          grid:{
-            left:50,
-            top:80,
-            bottom:40
+          grid: {
+            left: 50,
+            top: 80,
+            bottom: 40,
           },
           xAxis: {
             data: ["1月", "2月", "3月", "4月", "5月", "6月"],

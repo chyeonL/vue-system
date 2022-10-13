@@ -19,7 +19,7 @@
       <el-table
         :data="goodsList"
         border
-        height='500'
+        height='450'
         align="center"
         header-align="center"
       >
@@ -77,6 +77,7 @@ import Dialog from "@/components/Dialog";
 import Excel from '@/components/Excel'
 import TXT from '@/components/TXT'
 import PDF from '@/components/PDF'
+import { Message } from 'element-ui';
 
 export default {
   name: "ShowGoods",
@@ -125,16 +126,27 @@ export default {
   methods: {
     async getData(pageNo = 1, pageSize = 4) {
       //   console.log(pageNo, pageSize);
-      await this.$api.getAllGoods(pageNo, pageSize).then((res) => {
+      // await this.$api.getAllGoods(pageNo, pageSize).then((res) => {
+      //   // console.log(res.allData);
+      //   // console.log(JSON.stringify(res.allData));
+      //   this.goodsList = res.data;
+      //   this.total = res.total;
+      //   this.pageSize = parseInt(res.pageSize);
+      //   this.pageNo = parseInt(res.pageNo);
+      //   this.currentPage = this.pageNo;
+      //   this.type = "all";
+      //   this.allData = res.allData
+      // });
+      await this.$api.getGoods().then(res=>{
         // console.log(res);
         this.goodsList = res.data;
-        this.total = res.total;
-        this.pageSize = parseInt(res.pageSize);
-        this.pageNo = parseInt(res.pageNo);
+        this.total = res.data.length;
+        this.pageSize = 4;
+        this.pageNo = 1;
         this.currentPage = this.pageNo;
         this.type = "all";
-        this.allData = res.allData
-      });
+        Message.error('在线演示时，只能显示所有商品，其他功能无法使用')
+      })
     },
 
     // 改变页码，重发请求

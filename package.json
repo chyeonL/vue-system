@@ -16,6 +16,7 @@
     "express": "^4.18.1",
     "file-saver": "^2.0.5",
     "jsonwebtoken": "^8.5.1",
+    "mockjs": "^1.1.0",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "nprogress": "^0.2.0",
@@ -37,6 +38,7 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "nodemon": "^2.0.20",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {

@@ -11,8 +11,10 @@ export default {
   mutations: {
     // 设置用户信息   登录   vuex存储 + 本地存储
     setUserInfo(state, payload) {
+      // console.log(payload);
       state.userInfo = payload;
       localStorage.setItem("userInfo", JSON.stringify(payload));
+      state.isLogin = true
       localStorage.setItem("isLogin", true);
     },
 

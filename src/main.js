@@ -23,6 +23,10 @@ Vue.use(ElementUI);
 import JsonExcel from 'vue-json-excel'
 Vue.component('downloadExcel', JsonExcel)
 
+// mock
+import '@/api/mockRequest'
+
+// echarts图表
 import * as echarts from 'echarts';
 
 

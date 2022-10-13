@@ -17,6 +17,7 @@
         align="center"
         header-align="center"
         ref="tables"
+        height="400px"
       >
         <!-- id不是唯一的，只有cid才是辨识类目的唯一 -->
         <el-table-column prop="order_id" label="订单号" width="80">
@@ -109,18 +110,27 @@ export default {
     // 获取所有类目  默认：  页码 1   ，   页面大小 4
     async getData(pageNo = 1, pageSize = 4) {
       // console.log(pageNo,pageSize);
-      await this.$api.allOrder({ pageNo, pageSize }).then((res) => {
-        console.log(res);
-        if (res.success) {
-          this.pageNo = parseInt(res.pageNo);
-          this.pageSize = parseInt(res.pageSize);
-          this.total = res.total;
+      // await this.$api.allOrder({ pageNo, pageSize }).then((res) => {
+      //   console.log(JSON.stringify(res.allData));
+      //   if (res.success) {
+      //     this.pageNo = parseInt(res.pageNo);
+      //     this.pageSize = parseInt(res.pageSize);
+      //     this.total = res.total;
+      //     this.currentPage = this.pageNo;
+      //     this.tableData = res.data; //赋值给表单 对应的数据
+      //     this.type = "all";
+      //   }
+      // });
+      await this.$api.getorders().then(res=>{
+        // console.log(res);
+        this.pageNo = parseInt(res.pageNo);
+          this.pageSize =4;
+          this.total = res.length;
           this.currentPage = this.pageNo;
           this.tableData = res.data; //赋值给表单 对应的数据
           this.type = "all";
-        }
-      });
-      
+          this.$message.error('在线演示时，只能显示所有订单，其他功能无法使用')
+      })
     },
 
     // pdf

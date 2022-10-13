@@ -45,9 +45,8 @@ export default {
 }
 .myNav {  
   width: 200px;
-  height: 100vh;
+  height: 100%;
   background-color: #24292e;
-  // transition: all .3s linear;
 }
 
 .myContent {

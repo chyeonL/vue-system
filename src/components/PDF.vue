@@ -18,7 +18,7 @@
         </div>
         <hr />
         <pdf
-          src="./CSS.pdf"
+          src="./static/CSS.pdf"
           :page="n"
           @num-pages="pageCount = $event"
           @page-loaded="currentPage = $event"

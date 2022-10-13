@@ -1,7 +1,7 @@
 <template>
   <div class="myContent">
     <!-- 顶部 -->
-    <div class="header">
+      <div class="header">
       <!-- 折叠 展开 -->
       <div class="collapse" @click="change">
         <i class="el-icon-s-unfold" v-show="isCollapse"></i>
@@ -60,6 +60,7 @@
         </el-dropdown>
       </div>
     </div>
+    
     <!-- 内容显示 -->
     <main>
       <router-view></router-view>
@@ -109,17 +110,15 @@ export default {
 
 <style scoped lang="scss">
 .myContent {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // width: 100%;
-  // height: 100%;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 .header {
-  // position: absolute;
-  // top: 0;
-  // left: 200;
-  // right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,7 +129,9 @@ export default {
 
 main {
   flex: 1;
+  margin-top: 56px;
   padding: 20px;
+  overflow: auto;
 }
 
 .collapse {
@@ -161,8 +162,7 @@ main {
   justify-content: center;
   align-items: center;
   margin-right: 15px;
-
-  // background-color: aquamarine;
+  
   .share-button {
     display: inline-block;
     padding: 10px;
@@ -184,7 +184,7 @@ main {
 }
 
 .select {
-  width: 100px;
+  width: 150px;
   color:black;
 }
 </style>

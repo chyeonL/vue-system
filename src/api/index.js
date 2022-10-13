@@ -1,5 +1,6 @@
 // 统一封装接口 并 分别暴露
 import request from "./request";
+import mockRequest from './mockRequest'
 
 
 // 商品管理
@@ -40,3 +41,10 @@ export const deleteRule = (data)=> request.post('/deleteRule',data)
 export const updateRules = (data)=> request.post('/updateRules',data)
 // 搜索
 export const searchRules = (params)=>request.get('/searchRules',{params})
+
+
+// mock
+export const getCharts = ()=> mockRequest.get('/charts')
+export const getGoods = ()=> mockRequest.get('/goods')
+export const getRules = ()=> mockRequest.get('/rules')
+export const getorders = ()=> mockRequest.get('/orders')
