@@ -95,7 +95,7 @@ export default {
 
     // 点击 多语言 语言切换
     changLanguage(command) {
-      console.log(command);
+      // console.log(command);
       this.$i18n.locale = command;
     },
 

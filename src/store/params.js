@@ -30,7 +30,7 @@ export default {
 
         async addRule(context,params){
             let res = await addRule(params)
-            console.log(res);
+            // console.log(res);
             if(res.success){
                  Message({
                     message: res.msg,
@@ -45,7 +45,7 @@ export default {
 
         async updateRules(context,params){
             let res = await updateRules(params)
-            console.log(res);
+            // console.log(res);
             if(res.success){
                  Message({
                     message: res.msg, 
@@ -60,7 +60,7 @@ export default {
 
         async deleteRule(context,params){
             let res = await deleteRule(params)
-            console.log(res);
+            // console.log(res);
             if(res.success){
                  Message({
                     message: res.msg,
@@ -75,7 +75,7 @@ export default {
 
         async searchRules({commit},params){
             let res = await searchRules(params)
-            console.log(res);
+            // console.log(res);
             if(res.success){
                  Message({
                     message: res.msg,
