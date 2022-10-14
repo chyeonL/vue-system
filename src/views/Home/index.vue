@@ -1,6 +1,8 @@
 <template>
   <div id="home">
-    <Chart :options="sales" class="chart" />
+    <div class="saeles">
+       <Chart :options="sales" class="chart" />
+    </div>
     <Chart :options="rules9" class="chart" />
     <Chart :options="orders" class="chart" />
   </div>
@@ -187,6 +189,13 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+}
+
+.saeles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1200px;
 }
 
 .chart {
