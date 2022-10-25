@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { Message } from "element-ui";
 export default {
   name: "Login",
   data() {
@@ -68,7 +67,7 @@ export default {
     };
   },
   mounted() {
-    Message({
+    this.$message({
       type: "error",
       message: "在线演示时，只有简单的表单验证，点击登录直接跳转",
     });
@@ -81,25 +80,25 @@ export default {
           // console.log(this.ruleForm);
 
           // 在线演示直接跳转，不进行验证
-          let payload = {
-            id: 0,
-            username: "administrator",
-            password: "password",
-            token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiaWF0IjoxNjY1Njc5NjE4LCJleHAiOjE2NjU2Nzk2NDh9.0H5Y3Q3LY2R4VOclMl0tbchlYv--G2UJX0iZwXpgzuA",
-            avatar: null,
-            sex: "female",
-            age: 26,
-            address: "shanghai",
-            phoneNumber: "18766666666",
-          };
-          this.$store.commit("setUserInfo", payload);
-          if (this.$route.query.redirect) {
-            this.$router.replace(`${this.$route.query.redirect}`);
-          } else this.$router.replace("/");
+          // let payload = {
+          //   id: 0,
+          //   username: "administrator",
+          //   password: "password",
+          //   token:
+          //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluaXN0cmF0b3IiLCJwYXNzd29yZCI6InBhc3N3b3JkIiwiaWF0IjoxNjY1Njc5NjE4LCJleHAiOjE2NjU2Nzk2NDh9.0H5Y3Q3LY2R4VOclMl0tbchlYv--G2UJX0iZwXpgzuA",
+          //   avatar: null,
+          //   sex: "female",
+          //   age: 26,
+          //   address: "shanghai",
+          //   phoneNumber: "18766666666",
+          // };
+          // this.$store.commit("setUserInfo", payload);
+          // if (this.$route.query.redirect) {
+          //   this.$router.replace(`${this.$route.query.redirect}`);
+          // } else this.$router.replace("/");
+          
           // 登录 后台验证
-
-          /* this.$store.dispatch("goLogin", this.ruleForm).then((res) => {
+          this.$store.dispatch("goLogin", this.ruleForm).then((res) => {
             // console.log(res);
             if (res) {
               this.$message({
@@ -112,7 +111,7 @@ export default {
               } else this.$router.replace("/");
               this.$router.go(0);
             }
-          }); */
+          });
         } else {
           this.$message.error("请完整输入");
           return false;
@@ -139,6 +138,7 @@ export default {
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  min-height: 550px;
   background-color: #24292e;
 }
 

@@ -19,7 +19,7 @@
       <el-table
         :data="goodsList"
         border
-        height='450'
+        height='420'
         align="center"
         header-align="center"
       >
@@ -63,7 +63,6 @@
     <Pagination
       :total="total"
       :pageSize="pageSize"
-      :pageNo="pageNo"
       :currentPage="currentPage"
       @changePageNo="changePageNo"
       @changePageSize="changePageSize"
@@ -77,7 +76,6 @@ import Dialog from "@/components/Dialog";
 import Excel from '@/components/Excel'
 import TXT from '@/components/TXT'
 import PDF from '@/components/PDF'
-import { Message } from 'element-ui';
 
 export default {
   name: "ShowGoods",
@@ -124,29 +122,30 @@ export default {
     }
   },
   methods: {
+    // 获取数据
     async getData(pageNo = 1, pageSize = 4) {
-      //   console.log(pageNo, pageSize);
-      // await this.$api.getAllGoods(pageNo, pageSize).then((res) => {
-      //   // console.log(res.allData);
-      //   // console.log(JSON.stringify(res.allData));
-      //   this.goodsList = res.data;
-      //   this.total = res.total;
-      //   this.pageSize = parseInt(res.pageSize);
-      //   this.pageNo = parseInt(res.pageNo);
-      //   this.currentPage = this.pageNo;
-      //   this.type = "all";
-      //   this.allData = res.allData
-      // });
-      await this.$api.getGoods().then(res=>{
-        // console.log(res);
+      // console.log(pageNo, pageSize);
+      await this.$api.getAllGoods(pageNo, pageSize).then((res) => {
         this.goodsList = res.data;
-        this.total = res.data.length;
-        this.pageSize = 4;
-        this.pageNo = 1;
+        this.total = res.total;
+        this.pageSize = parseInt(res.pageSize);
+        this.pageNo = parseInt(res.pageNo);
         this.currentPage = this.pageNo;
         this.type = "all";
-        Message.error('在线演示时，只能显示所有商品，其他功能无法使用')
-      })
+        this.allData = res.allData
+      });
+
+      // mock
+      // await this.$api.getGoods().then(res=>{
+      //   // console.log(res);
+      //   this.goodsList = res.data;
+      //   this.total = res.data.length;
+      //   this.pageSize = 4;
+      //   this.pageNo = 1;
+      //   this.currentPage = this.pageNo;
+      //   this.type = "all";
+      //   Message.error('在线演示时，只能显示所有商品，其他功能无法使用')
+      // })
     },
 
     // 改变页码，重发请求
@@ -214,7 +213,7 @@ export default {
     },
 
     // 编辑     和添加商品共用一个弹窗组件
-    async handleEdit(index, row) {
+    handleEdit(index, row) {
       // console.log(row);
       this.$bus.$emit("openDialog",'edit',row);
     },
@@ -255,7 +254,6 @@ export default {
 <style scoped lang="scss">
 header {
   display: flex;
-  //   justify-content: space-between;
   align-items: center;
 
   ::v-deep .el-input {

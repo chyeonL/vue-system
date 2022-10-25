@@ -63,8 +63,6 @@ export default {
     },
 
     getCategory(data, node, ele) {
-      // console.log(data,node,ele);
-      // console.log(data);
       this.$bus.$emit("getCategory", data);
     },
   },

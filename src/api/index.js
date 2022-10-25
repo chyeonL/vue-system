@@ -23,9 +23,7 @@ export const updateGoods = (data)=> request.post('/updateGoods',data)
 // 用户
 // 登录
 export const login = (data)=>request.post('/login',data)
-
 export const modifyPwd = (data)=>request.post('/modifyPwd',data)
-
 export const allOrder = (params)=> request({url:'/allOrder',params,method:'get'})
 
 

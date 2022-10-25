@@ -41,10 +41,10 @@ export default {
       type: Number,
       default: 7,
     },
-    pageNo: {
-      type: Number,
-      default: 1,
-    },
+    // pageNo: {
+    //   type: Number,
+    //   default: 1,
+    // },
     currentPage:{
       type: Number,
       default: 1,

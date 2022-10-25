@@ -1,5 +1,4 @@
 import { login,modifyPwd } from "@/api";
-import {Message} from 'element-ui'
 export default {
   state: {
     userInfo: {
@@ -35,16 +34,16 @@ export default {
   },
   actions: {
     async goLogin({ state, commit }, value) {
-      let res = await login(value);
-    //   console.log(res);
+      let res = await login(value)
+      console.log(res);
       if (res.success) {
         commit("setUserInfo", res.data);
         return 'ok';
       } else if(res.code == 203){        
-        Message.error(res.msg)
+        this.$message.error(res.msg)
         return false
       }else if(res.code == 205){     
-        Message.error(res.msg)
+        this.$message.error(res.msg)
         return false
       }
     }, 

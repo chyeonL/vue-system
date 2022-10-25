@@ -1,7 +1,9 @@
 {
-  "name": "vue-system",
+  "name": "vue-system", 
   "version": "0.1.0",
   "private": true,
+  "author":"chyeonLeu",
+  "description": "a Vue2 system for shop management",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

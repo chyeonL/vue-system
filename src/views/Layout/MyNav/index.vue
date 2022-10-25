@@ -1,5 +1,4 @@
 <template>
-  <div class="myNav">
     <el-menu
       :default-active="$route.path"
       class="el-menu-vertical-demo"
@@ -54,7 +53,6 @@
         <span slot="title">{{$t('menu.user')}}</span>
       </el-menu-item>
     </el-menu>
-  </div>
 </template>
 
 <script>
@@ -65,8 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.myNav {  
-}
 .system {
   font-size: 20px;
   font-weight: 700;

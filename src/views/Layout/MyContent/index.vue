@@ -1,7 +1,7 @@
 <template>
   <div class="myContent">
     <!-- 顶部 -->
-      <div class="header">
+    <div class="header">
       <!-- 折叠 展开 -->
       <div class="collapse" @click="change">
         <i class="el-icon-s-unfold" v-show="isCollapse"></i>
@@ -11,7 +11,13 @@
       <!-- 右侧 -->
       <div class="user">
         <!-- 切换商铺 -->
-        <el-select v-model="value" placeholder="切换商铺" class="select" filterable size='mini'>
+        <el-select
+          v-model="value"
+          placeholder="切换商铺"
+          class="select"
+          filterable
+          size="mini"
+        >
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -47,12 +53,14 @@
         </el-badge>
 
         <!-- 头像 移入显示dropdown -->
-        <el-dropdown class="user">
+        <el-dropdown class="avatar">
           <span>
-            <el-avatar size="small" :src="circleUrl" class="avatar"></el-avatar>
+            <el-avatar size="small" :src="circleUrl"></el-avatar>
           </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="$router.push('/user')">{{ $t("user.settings") }}</el-dropdown-item>
+          <el-dropdown-menu slot="dropdown" class="dd">
+            <el-dropdown-item @click.native="$router.push('/user')">{{
+              $t("user.settings")
+            }}</el-dropdown-item>
             <el-dropdown-item @click.native="logout">{{
               $t("user.logout")
             }}</el-dropdown-item>
@@ -60,7 +68,6 @@
         </el-dropdown>
       </div>
     </div>
-    
     <!-- 内容显示 -->
     <main>
       <router-view></router-view>
@@ -76,16 +83,20 @@ export default {
     return {
       circleUrl:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-        // 切换商铺
-        options: [{
-          value: '广州塔总店',
-        }, {
-          value: '文化西路分店',
-        }, {
-          value: '花都区分店',
-        }],
-        value: ''
-      }
+      // 切换商铺
+      options: [
+        {
+          value: "广州塔总店",
+        },
+        {
+          value: "文化西路分店",
+        },
+        {
+          value: "花都区分店",
+        },
+      ],
+      value: "",
+    };
   },
   methods: {
     // 展开折叠
@@ -113,12 +124,12 @@ export default {
   display: flex;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .header {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,7 +173,7 @@ main {
   justify-content: center;
   align-items: center;
   margin-right: 15px;
-  
+
   .share-button {
     display: inline-block;
     padding: 10px;
@@ -173,18 +184,20 @@ main {
   }
   .avatar {
     cursor: pointer;
+    margin-right: 10px;
   }
-}
-::v-deep .el-badge__content.is-fixed.is-dot {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  border: none;
-  background-color: red;
-}
 
-.select {
-  width: 150px;
-  color:black;
+  ::v-deep .is-dot {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    border: none;
+    background-color: red;
+  }
+
+  .select {
+    width: 150px;
+    color: black;
+  }
 }
 </style>
