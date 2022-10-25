@@ -128,27 +128,29 @@ export default {
     // 获取所有类目  默认：  页码 1   ，   页面大小 4
     getData(pageNo = 1, pageSize = 4) {
       // console.log(pageNo,pageSize);
-      // this.$store.dispatch("getCategory", { pageNo, pageSize }).then((res) => {
-      //   if (res.success) {
-      //     this.pageNo = parseInt(res.pageNo);
-      //     this.pageSize = parseInt(res.pageSize);
-      //     this.total = res.total;
-      //     this.currentPage = this.pageNo;
-      //     this.tableData = this.ruleData;     //赋值给表单 对应的数据
-      //     this.type = "all";
-      //   }
-      // });
-
-      this.$api.getRules().then(res=>{
-        // console.log(res);
-        this.pageNo = 1
-          this.pageSize = 4;
-          this.total = res.data.length;
+      this.$store.dispatch("getCategory", { pageNo, pageSize }).then((res) => {
+        if (res.success) {
+          this.pageNo = parseInt(res.pageNo);
+          this.pageSize = parseInt(res.pageSize);
+          this.total = res.total;
           this.currentPage = this.pageNo;
-          this.tableData = res.data;     //赋值给表单 对应的数据
+          this.tableData = this.ruleData;     //赋值给表单 对应的数据
           this.type = "all";
-          this.$message.error('在线演示时，只能显示所有规格，其他功能无法使用')
-      })
+        }
+      });
+
+      // mock
+      
+      // this.$api.getRules().then(res=>{
+      //   // console.log(res);
+      //   this.pageNo = 1
+      //     this.pageSize = 4;
+      //     this.total = res.data.length;
+      //     this.currentPage = this.pageNo;
+      //     this.tableData = res.data;     //赋值给表单 对应的数据
+      //     this.type = "all";
+      //     this.$message.error('在线演示时，只能显示所有规格，其他功能无法使用')
+      // })
     },
 
     // 搜索

@@ -175,6 +175,7 @@ export default {
       this.type = type;
       if (this.type == "edit") this.goodsForm = goods;
     });
+
     // 获取类目
     this.$bus.$on("getCategory", (data) => {
       this.TreeData = data;
@@ -231,6 +232,7 @@ export default {
                 this.dialogFormVisible = false;
                 // 刷新页面，所有商品
                 this.$parent.getData();
+                // this.$router.go(0)
                 // 清空表单
                 this.resetForm();
               }

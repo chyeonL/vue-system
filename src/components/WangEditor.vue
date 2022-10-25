@@ -13,12 +13,9 @@ export default {
       editor: {},
     };
   },
-  props:{
-    desc:{
-      default:''
-    }
-  },
+  props:['desc'],
   mounted() {
+    console.log(this.$props.desc);
     // 创建实例
     this.editor = new E(".wangEditor");
     // 取消自动 focus

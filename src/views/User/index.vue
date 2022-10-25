@@ -82,7 +82,6 @@
 </template>
 
 <script>
-import { Message } from 'element-ui';
 import { mapState } from "vuex";
 export default {
   name: "User",
@@ -99,7 +98,7 @@ export default {
   methods: {
     submitForm() {
       if(!this.ruleForm.checkPass && !this.ruleForm.newpwd && !this.ruleForm.oldpwd) 
-      return Message.error('请完整输入')
+      return this.$message.error('请完整输入')
       if(this.ruleForm.checkPass == this.ruleForm.newpwd){
         // 发请求
         // console.log(this.ruleForm);
@@ -107,7 +106,7 @@ export default {
         let newPwd = this.ruleForm.newpwd
         this.$store.dispatch('modifyPwd',{id,newPwd}).then(res=>{
           if(res.success){
-            Message({
+            this.$message({
               type:'success',
               message:res.msg
             })
@@ -115,7 +114,7 @@ export default {
           }
         })
       }else{
-        return Message.error('两次输入的新密码不相同')
+        return this.$message.error('两次输入的新密码不相同')
       }
     },
 

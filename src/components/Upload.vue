@@ -3,7 +3,6 @@
     class="upload-demo"
     ref="upload"
     :action="url"
-    :on-remove="handleRemove"
     :on-success="handleSuccess"
     :file-list="fileList"
     :auto-upload="false"
@@ -16,9 +15,6 @@
       @click="submitUpload"
       >上传到服务器</el-button
     >
-    <div slot="tip" class="el-upload__tip">
-      只能上传jpg/png文件，且不超过500kb
-    </div>
   </el-upload>
 </template>
 
@@ -37,7 +33,7 @@ export default {
       },
     //   上传成功
       handleSuccess(response, file, fileList){
-        // console.log(response, file, fileList);
+        console.log(response, file, fileList);
         let imgUrl = 'http://localhost:80/'+response.url.slice(7)
         // console.log(imgUrl);
         this.$message({
